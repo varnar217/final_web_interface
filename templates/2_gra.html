@@ -281,11 +281,11 @@ padding: 3px;
         </div>
     </div>
 <center>
-  <div class="container">
+  <div class="container" >
       <div class="row">
           <div class="col-12">
               <div class="card">
-                  <div class="card-body">
+                  <div class="card-body" >
                       <canvas id="canvas"></canvas>
                   </div>
               </div>
@@ -309,7 +309,7 @@ padding: 3px;
     <body onload="requestData_alive()">
      <div id="welcome"></div>
     </body>
-
+        {% if start_flag %}
     <script language="JavaScript">
        let  intervalID ;
      function requestData_alive()
@@ -343,6 +343,9 @@ padding: 3px;
 
 
     </script>
+      {% else %}
+
+     {% endif %}
 
     {%else %}
 
@@ -477,7 +480,7 @@ padding: 3px;
 
 
 
-    <script>
+    <script type="text/javascript">
  var timert=0;
   var requests=0;
     function getRandomIntInclusive(min, max) {
@@ -565,13 +568,28 @@ padding: 3px;
     var x1 =  {{data_grafik1[0]}};//document.getElementById("epb").value;
     var myString = x1 .toString();
     var joined = '/data/'+myString
+
+
 var getData = function(){
+
   $.ajax({
       type: "POST",
       url: joined,
       data: $('form').serialize(),
       type: 'POST',
       success: function(response) {
+        if (response[0]=== "Not" ){
+           //clearTimeout(intervalID) ;
+           //console.log(response);
+           $("#content").html(response);
+
+
+          //location.reload();
+
+
+        };
+
+
 
         $(".sensor2").text("");
         $(".sensor2").text(   "Bitrate(bit/sec): " +  (response[1]) );
@@ -582,7 +600,8 @@ var getData = function(){
           myChart.update();
       },
       error: function(error) {
-          console.log(error);
+        location.reload();
+          //console.log(error);
       }
   });
 
