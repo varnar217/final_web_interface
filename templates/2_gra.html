@@ -309,7 +309,7 @@ padding: 3px;
     <body onload="requestData_alive()">
      <div id="welcome"></div>
     </body>
-        {% if start_flag %}
+           {% if start_flag %}
     <script language="JavaScript">
        let  intervalID ;
      function requestData_alive()
@@ -343,9 +343,9 @@ padding: 3px;
 
 
     </script>
-      {% else %}
+  {% else %}
 
-     {% endif %}
+   {% endif %}
 
     {%else %}
 
@@ -778,7 +778,7 @@ var getData = function(){
              myChart.update();
          },
          error: function(error) {
-             console.log(error);
+              location.reload();
          }
      });
 
@@ -984,7 +984,7 @@ $.ajax({
         myChart.update();
     },
     error: function(error) {
-        console.log(error);
+          location.reload();
     }
 });
 
@@ -1186,7 +1186,7 @@ $.ajax({
             myChart.update();
         },
         error: function(error) {
-            console.log(error);
+              location.reload();
         }
     });
 

@@ -3414,6 +3414,7 @@ def start():
     if request.method == 'POST':
         print('\n start!!!!!!')
         start_flagss=start_flagss+1
+        print('\n start_flagss=',start_flagss)
 
         if len(eps_br) ==0 :
             #error_flag=True
@@ -4818,7 +4819,7 @@ if __name__ == "__main__":
     #serve(app, host="0.0.0.0", port=3050)
     #os.environ["WERKZEUG_RUN_MAIN"] = "true"
 
-    app.run('0.0.0.0')
+    app.run('0.0.0.0',debug=False,threaded=False, processes=1)
         #adr=port_adres['addr']
         #adr_port=port_adres['port']
     #app.run(port_adres['addr'],port=port_adres['port'])
