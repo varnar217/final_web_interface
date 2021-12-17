@@ -1130,7 +1130,7 @@ def izmen2():
             #print('json_2=',json_out)
             try:
                 print('\n \n do json_out=',json_out)
-                rr=req.put(f'http://{udras}/params/eb',json=(json_out))
+                rr=  req.put(f'http://{udras}/params/eb',json=(json_out))
 
                 js = json.loads(rr.text)
                 print('\n \n do js=',js)
@@ -1165,7 +1165,7 @@ def izmen2():
             #print('json_2=',json_out)
             try:
                 print('\n \n do json_out=',json_out)
-                rr=req.put(f'http://{udras}/params/eb',json=(json_out))
+                rr=  req.put(f'http://{udras}/params/eb',json=(json_out))
 
                 js = json.loads(rr.text)
                 print('\n \n do js=',js)
@@ -1206,7 +1206,7 @@ def izmen2():
             #print('json_2=',json_out)
             try:
                 print('\n \n do json_out=',json_out)
-                rr=req.put(f'http://{udras}/params/eb',json=(json_out))
+                rr=  req.put(f'http://{udras}/params/eb',json=(json_out))
 
                 js = json.loads(rr.text)
                 print('\n \n do js=',js)
@@ -1240,7 +1240,7 @@ def izmen2():
             #print('json_2=',json_out)
             try:
                 print('\n \n do json_out=',json_out)
-                rr=req.put(f'http://{udras}/params/eb',json=(json_out))
+                rr=  req.put(f'http://{udras}/params/eb',json=(json_out))
 
                 js = json.loads(rr.text)
                 print('\n \n do js=',js)
@@ -1316,7 +1316,7 @@ def eb_all_delete():
                         json_out2=json.dumps(json_out)
                         #print('do do rr=',json_out2)
 
-                        rr=req.delete(f'http://{udras}/params/eb',json=(json_out))
+                        rr=  req.delete(f'http://{udras}/params/eb',json=(json_out))
 
                         js = json.loads(rr.text)
                         eb_ALL_delete=0
@@ -1537,7 +1537,7 @@ def eb_all_add():
                         }
                         try :
 
-                            rr=req.post(f'http://{udras}/params/eb',json=(json_out))
+                            rr= req.post(f'http://{udras}/params/eb',json=(json_out))
                             js = json.loads(rr.text)
                             add_eps_buferss=0
 
@@ -1591,7 +1591,7 @@ def eb_all_add():
                         }
 
                         try :
-                            rr=req.post(f'http://{udras}/params/eb',json=(json_out))
+                            rr=  req.post(f'http://{udras}/params/eb',json=(json_out))
                             js = json.loads(rr.text)
                             error_flag_add_eps=False
                             add_eps_buferss=0
@@ -1634,7 +1634,7 @@ def eb_all_add():
                         }
                         }
                         try :
-                            rr=req.post(f'http://{udras}/params/eb',json=(json_out))
+                            rr=  req.post(f'http://{udras}/params/eb',json=(json_out))
                             js = json.loads(rr.text)
                             error_flag_add_eps=False
                             add_eps_buferss=0
@@ -1684,7 +1684,7 @@ def eb_all_add():
                         try :
 
 
-                            rr=req.post(f'http://{udras}/params/eb',json=(json_out))
+                            rr=  req.post(f'http://{udras}/params/eb',json=(json_out))
                             js = json.loads(rr.text)
 
                             error_flag_add_eps=False
@@ -1753,7 +1753,7 @@ def eb_add():
                 }]
                 }
                 }
-                rr=req.post(f'http://{udras}/params/eb',json=(json_out))
+                rr=  req.post(f'http://{udras}/params/eb',json=(json_out))
 
                 js = json.loads(rr.text)
 
@@ -2760,7 +2760,7 @@ def delete_eb(number):
             json_out2=json.dumps(json_out)
             #print('do do rr=',json_out2)
 
-            rr=req.delete(f'http://{udras}/params/eb',json=(json_out))
+            rr=  req.delete(f'http://{udras}/params/eb',json=(json_out))
 
             js = json.loads(rr.text)
             #print('delete outrr=',js)
@@ -3221,7 +3221,7 @@ def LIST_EPS():
                 ind_sce_0_iter=0
                 conect=True
                 start=time()*1000
-                rr=req.get(f'http://{udras}/params/eb')
+                rr=  req.get(f'http://{udras}/params/eb')
                 LIST_EPS_flagss=0
                 stop=int(time()*1000-start)
                 time_otvet=stop*1
@@ -3981,7 +3981,7 @@ def change_eps():
             stopped_bufer=False
             conect=True
             error_flag_add_eps=False
-            rr=req.put(f'http://{udras}/params/eb',json=(json_out))
+            rr=  req.put(f'http://{udras}/params/eb',json=(json_out))
 
             js = json.loads(rr.text)
             #print('\n \n \n !!!!!!!!!!!!True True=',js)
@@ -4634,7 +4634,7 @@ def data(number):
         try:
 
 
-            rr=req.get(f'http://{udras}/alive')
+            rr=  req.get(f'http://{udras}/alive')
             conect=True
             if conect or start_flag :
                 if data_flagss==1:
@@ -4650,7 +4650,7 @@ def data(number):
 
                                 start = time()*1000
 
-                                rr = req.get(f'http://{udras}/stats/eb')
+                                rr =  req.get(f'http://{udras}/stats/eb')
                                 js = json.loads(rr.text)
                                 data_flagss=0
                                 #print('\n \n!!!234 js=',js)
