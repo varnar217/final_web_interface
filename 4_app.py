@@ -429,12 +429,14 @@ def alive():
     if request.method == 'POST' or request.method == 'GET' :
         global conect , start_flag1 , alive_flagss , data_flagss
         alive_flagss=alive_flagss+1
+        textert_dlia_analiz=0
         if alive_flagss==1 and  data_flagss==0:
             try:
                 conect=True
 
                 rr=req.get(f'http://{udras}/alive')
                 buferr=rr.text
+                textert_dlia_analiz=buferr
                 js = json.loads(buferr)
                 alive_flagss=0
                 print('\n js=',js)
@@ -457,7 +459,9 @@ def alive():
                     start_flag1=0
                     conect=False
 
-            except Exception as ex:
+            except req.ConnectionError as ex:
+                    print('\n dert ConnectionError')
+
                     conect=False
                     start_flag1=0
                     fe=repr(ex)
@@ -465,6 +469,7 @@ def alive():
 
                     if 'Internal Server Error' in fe:
                         json_data="God"
+                        conect=True
                         response = make_response(json_data)
                         data=["God",2]
                     else:
@@ -476,13 +481,50 @@ def alive():
 
                     response = make_response(json_data)
                     #print('\n Not=',json_data)
-                    print('\n alive gs=',fe)
+                    print('\n alive gs=',data)
+                    print('\n alive textert_dlia_analiz=',ex)
+                    print('\n fe=',ex)
                     #print('\n alive gs=',repr(ex))
                     #print('\n 23 js=',js)
 
                     response.content_type = 'application/json'
 
                     return response
+
+            except Exception as ex:
+
+
+
+                    conect=True
+                    start_flag1=0
+                    fe=repr(ex)
+                    alive_flagss=0
+
+                    #if 'Internal Server Error' in fe:
+                        #json_data="God"
+                        #conect=True
+                        #response = make_response(json_data)
+                        #data=["God",2]
+                    #else:
+                        #json_data="Not"
+                        #response = make_response(json_data)
+                        #data=["Not",2]
+                    data=["God",2]
+
+                    json_data = json.dumps(data)
+
+                    response = make_response(json_data)
+                    #print('\n Not=',json_data)
+                    print('\n alive gs=',data)
+                    print('\n alive textert_dlia_analiz=',ex)
+                    print('\n fe=',ex)
+                    #print('\n alive gs=',repr(ex))
+                    #print('\n 23 js=',js)
+
+                    response.content_type = 'application/json'
+
+                    return response
+
                     #response = make_response(json_data)
 
 
