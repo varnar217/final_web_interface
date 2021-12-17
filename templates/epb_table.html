@@ -173,15 +173,15 @@ float:left;
 <label for="adres_naz">{{punkt_menu[16]}}</label>
 -<input class="mytext" type="text" disabled="disabled" value ={{min_eps}} >
 
-     <form style =" float:left " method="POST" action='/back_1'>
-	 <p><button class="myButton" >{{punkt_menu[6]}}</button></p>
+     <form style =" float:left ;display:block; " method="POST" action='/back_1'>
+	 <p><button class="myButton" id="back_23" >{{punkt_menu[6]}}</button></p>
 
 	 </form>
-   <form style =" float:left "  method="POST" action='/eb_ALL/delete'>
-   <p><button class="myButton">{{punkt_menu[10]}}</button></p>
+   <form style =" float:left;display:block; "  method="POST" action='/eb_ALL/delete'>
+   <p><button class="myButton" id="back_24" onclick="show_ert()">{{punkt_menu[10]}}</button></p>
 
    </form>
-   <form style =" float:left "  >
+   <form style =" float:left ;display:block;"  >
    <p><button id="chenge" onclick="requestData()" class="myButton">{{punkt_menu[14]}}</button></p>
 
    </form>
@@ -356,7 +356,7 @@ float:left;
 </center>
 
 <div class="form-popup" id="myForm">
-  <form   method="POST" action='/eb_ALL/add' class="form-container">
+  <form   method="POST" action='/eb_ALL/add' class="form-container" >
     <h1>{{punkt_menu[9]}}</h1>
 
     <label for="email"><b>{{punkt_menu[11]}}</b></label>
@@ -387,7 +387,7 @@ float:left;
 
     {%endfor%}
     <br>
-    <input  class="c-button"  type = "submit" value = "{{punkt_menu[13]}}" name="{{punkt_menu[13]}}" />
+    <input  class="c-button"  type = "submit" value = "{{punkt_menu[13]}}" name="{{punkt_menu[13]}}"  />
     <button class="c-button" type="button"  onclick="closeForm()">{{punkt_menu[12]}}</button>
   </form>
 </div>
@@ -443,15 +443,92 @@ function colr_change1(x){
 
 </script>
 
-
 <script language="JavaScript">
+function back_245() {
+  //location.reload();
+  let x = document.getElementById('back_23');
+      if (x.style.display == "none"){
+	  x.style.display = "block";
+	  } else {
+	 x.style.display = "none"} ;
+
+    let x2 = document.getElementById('back_24');
+        if (x2.style.display == "none"){
+  	  x2.style.display = "block";
+  	  } else {
+  	 x2.style.display = "none"} ;
+
+
+};
+</script>
+<script language="JavaScript">
+function show_ert() {
+  document.getElementById("myForm").style.display = "block";
+  let x = document.getElementById('back_23');
+      if (x.style.display == "none"){
+    x.style.display = "block";
+    } else {
+   x.style.display = "none"} ;
+
+    let x2 = document.getElementById('back_24');
+        if (x2.style.display == "none"){
+      x2.style.display = "block";
+      } else {
+     x2.style.display = "none"} ;
+     let x3 = document.getElementById('chenge');
+         if (x3.style.display == "none"){
+       x3.style.display = "block";
+       } else {
+      x3.style.display = "none"} ;
+}
+
+
+
 function openForm() {
   document.getElementById("myForm").style.display = "block";
+  let x = document.getElementById('back_23');
+      if (x.style.display == "none"){
+    x.style.display = "block";
+    } else {
+   x.style.display = "none"} ;
+
+    let x2 = document.getElementById('back_24');
+        if (x2.style.display == "none"){
+      x2.style.display = "block";
+      } else {
+     x2.style.display = "none"} ;
+     let x3 = document.getElementById('chenge');
+         if (x3.style.display == "none"){
+       x3.style.display = "block";
+       } else {
+      x3.style.display = "none"} ;
 }
+
+
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+
+  let x = document.getElementById('back_23');
+      if (x.style.display == "none"){
+    x.style.display = "block";
+    } else {
+   x.style.display = "none"} ;
+
+    let x2 = document.getElementById('back_24');
+        if (x2.style.display == "none"){
+      x2.style.display = "block";
+      } else {
+     x2.style.display = "none"} ;
+
+     let x3 = document.getElementById('chenge');
+         if (x3.style.display == "none"){
+       x3.style.display = "block";
+       } else {
+      x3.style.display = "none"}
 }
+
+
 
 
 

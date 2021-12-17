@@ -172,7 +172,7 @@ float:left;
 
 <!--<input class="mytext" type="text"  disabled="disabled" value ={{time_otvet}} >-->
 <form style =" float:left " method="POST" action='/back_1'>
-<p><button class="myButton" >{{punkt_menu[6]}}</button></p>
+<p><button class="myButton" id="back_23">{{punkt_menu[6]}}</button></p>
 
 </form>
 {% if lang_bool %}
@@ -304,10 +304,24 @@ float:left;
 <script>
 function openForm() {
   document.getElementById("myForm").style.display = "block";
+
+
+    let x = document.getElementById('back_23');
+        if (x.style.display == "none"){
+      x.style.display = "block";
+      } else {
+     x.style.display = "none"} ;
 }
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
+
+
+    let x = document.getElementById('back_23');
+        if (x.style.display == "none"){
+      x.style.display = "block";
+      } else {
+     x.style.display = "none"} ;
 }
 </script>
 
