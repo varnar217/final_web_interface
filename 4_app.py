@@ -3435,87 +3435,87 @@ def start():
                 #return  redirect(url_for("gra")) #render_template('2_gra.html')
         #error_flag
 
-        if start_flagss ==1:
+        #if start_flagss ==1:
 
-            try:
-                """run start/stop  """
-                print('\n start23!!!!!!')
-                #global
-                #global conect
-                conect=True
-                start_flag=False
-                json_out={}
-                if start_flag1%2 == 0:
-                    start_flag=True    #False  #bool(5)#"true" #True возможно наборот
-                else:
-                    start_flag= False# False #bool(0)#"false" #False
+        try:
+            """run start/stop  """
+            print('\n start23!!!!!!')
+            #global
+            #global conect
+            conect=True
+            start_flag=False
+            json_out={}
+            if start_flag1%2 == 0:
+                start_flag=True    #False  #bool(5)#"true" #True возможно наборот
+            else:
+                start_flag= False# False #bool(0)#"false" #False
 
-                start=time()*1000
-                json_out={"state":{"run":start_flag}}
-
-
+            start=time()*1000
+            json_out={"state":{"run":start_flag}}
 
 
 
 
-                sesion_1=req.put(f'http://{udras}/state/run',json=json_out)
-                #time.sleep(10)
-
-                stop=int(time()*1000-start)
-                time_otvet =stop*1
 
 
-                js=json.loads(sesion_1.text)
-                print('\n !!!js=',js)
-                if js['response']['code'] == 0:
-                    start_flagss=0
-                    ###stopped_msg_mac=''
-                    error_flag=False
-                    allert_msg=''
+            sesion_1=req.put(f'http://{udras}/state/run',json=json_out)
+            #time.sleep(10)
 
-                    start_flag1=start_flag1+1
-                    if js['state']['run'] == False :
-                        start_flag1=0
-                    if js['state']['run'] == True :
-                        start_flag1=1
-                    #if stopped_msg_mac in 'DPDK: Invalid MAC address of the destination' or stopped_msg_mac in 'DPDK: MAC address of the source is out of the list' or stopped_msg_mac in 'DPDK: Invalid MAC address of the source':
-                        #start_flag1=0
-                        #print('\n !!!!rab2')
-
-                    #error_flag=False
-                    #stopped_bufer=False
-                else:
-                    start_flagss=0
-                    start_flag1=0
-                    error_flag=True
-                    allert_msg= js['response']['msg']
-                    print('allert_msg=',allert_msg)
+            stop=int(time()*1000-start)
+            time_otvet =stop*1
 
 
-
-                start_flag=True
-                if start_flag1%2 == 0:
-                    start_flag=True
-                else:
-                    start_flag=False
-
-
-                return  redirect(url_for("gra")) #render_template('2_gra.html')
-
-            except Exception as ex:
-
-                conect=False
+            js=json.loads(sesion_1.text)
+            print('\n !!!js=',js)
+            if js['response']['code'] == 0:
                 start_flagss=0
+                ###stopped_msg_mac=''
+                error_flag=False
+                allert_msg=''
 
+                start_flag1=start_flag1+1
+                if js['state']['run'] == False :
+                    start_flag1=0
+                if js['state']['run'] == True :
+                    start_flag1=1
+                #if stopped_msg_mac in 'DPDK: Invalid MAC address of the destination' or stopped_msg_mac in 'DPDK: MAC address of the source is out of the list' or stopped_msg_mac in 'DPDK: Invalid MAC address of the source':
+                    #start_flag1=0
+                    #print('\n !!!!rab2')
+
+                #error_flag=False
+                #stopped_bufer=False
+            else:
+                start_flagss=0
                 start_flag1=0
                 error_flag=True
                 allert_msg= js['response']['msg']
+                print('allert_msg=',allert_msg)
 
-                print('\n start=',allert_msg)
-                return  redirect(url_for("gra"))
-        else:
 
+
+            start_flag=True
+            if start_flag1%2 == 0:
+                start_flag=True
+            else:
+                start_flag=False
+
+
+            return  redirect(url_for("gra")) #render_template('2_gra.html')
+
+        except Exception as ex:
+
+            conect=False
+            start_flagss=0
+
+            start_flag1=0
+            error_flag=True
+            allert_msg= js['response']['msg']
+
+            print('\n start=',allert_msg)
             return  redirect(url_for("gra"))
+    else:
+
+        return  redirect(url_for("gra"))
 
 
 
